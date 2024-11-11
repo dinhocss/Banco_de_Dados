@@ -102,4 +102,38 @@ No caso de relacionamentos ternários também temos o conceito de cardinalidade 
 
 As cardinalidades acima dizem que um distribuidor pode ter um produto em diversas cidades, também que um produto distribuído em uma cidade só pode ter um único distribuidor, e por último que um distribuidor em uma cidade pode ter diversos produtos.
 
+***
+## Cardinalidade Mínima
+
+Além da cardinalidade máxima uma outra característica que podemos ter num diagrama ER é a cardinalidade mínima, que indica o número mínimo de ocorrências que uma determinada entidade terá em relação a uma ocorrência de outra entidade. Considera-se a cardinalidade mínima como sendo 1 ou 0.
+
+A cardinalidade 1 é denominada *associação obrigatória*, já que o mínimo de ocorrências que uma instância terá em relação a ocorrência de uma outra instância será 1. E a cardinalidade 0 é denominada *associação opcional*.
+
+A figura 12 mostra um relacionamento com cardinalidades máxima e mínima, e um diagrama de ocorrência desse relacionamento 1:1:
+
+![image](https://github.com/user-attachments/assets/7ea1c5f1-adf5-4a58-b6fc-a2755afd05f7)
+
+A figura acima traduz-se em um empregado está associado a uma única mesa, e uma mesa pode ter 0 ou 1 empregados alocados nela.
+
+***
+
+## Atributos
+
+Um atributo é um dado que é associado a cada ocorrência de uma entidade ou relacionamento. Os atributos são demonstrados graficamente através de um círculo branco ligado a determinada entidade ou relacionamento, por exemplo:
+
+![image](https://github.com/user-attachments/assets/4b0d97e3-d268-4d99-9416-d417f3857a6d)
+
+No caso acima temos tambem uma notação parecida com a notação de relacionamentos, onde há cardinalidade mínima e máxima. 
+
+Uma outra característica de atributos é que eles podem estar relacionados a relacionamentos também. Por exemplo:
+
+![image](https://github.com/user-attachments/assets/fe17a65e-da5f-4e34-ba97-1abb0390c6b6)
+
+Nesse caso temos um atributo relacionado ao relacionamento Atuação. Este atributo não pode estar em engenheiro, pois um mesmo engenheiro pode ter funções diferentes em diferentes projetos. E também não pode estar em projeto, pois um projeto pode ter mais de um engenheiro com funções diferentes.
+
+
+
+***
+
+## Identificando Entidades
 
