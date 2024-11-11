@@ -103,7 +103,7 @@ No caso de relacionamentos ternários também temos o conceito de cardinalidade 
 As cardinalidades acima dizem que um distribuidor pode ter um produto em diversas cidades, também que um produto distribuído em uma cidade só pode ter um único distribuidor, e por último que um distribuidor em uma cidade pode ter diversos produtos.
 
 ***
-## Cardinalidade Mínima
+# Cardinalidade Mínima
 
 Além da cardinalidade máxima uma outra característica que podemos ter num diagrama ER é a cardinalidade mínima, que indica o número mínimo de ocorrências que uma determinada entidade terá em relação a uma ocorrência de outra entidade. Considera-se a cardinalidade mínima como sendo 1 ou 0.
 
@@ -118,7 +118,7 @@ A figura acima traduz-se em um empregado está associado a uma única mesa, e um
 💻[Exemplo completo de um diagrama Entidade-Relacionamento](https://github.com/dinhocss/Banco_de_Dados/wiki/Anota%C3%A7%C3%B5es-complementares#exemplo-completo-de-um-diagrama-entidade-relacionamento)
 ***
 
-## Atributos
+# Atributos
 
 Um atributo é um dado que é associado a cada ocorrência de uma entidade ou relacionamento. Os atributos são demonstrados graficamente através de um círculo branco ligado a determinada entidade ou relacionamento, por exemplo:
 
@@ -134,7 +134,7 @@ Nesse caso temos um atributo relacionado ao relacionamento Atuação. Este atrib
 
 ***
 
-## Identificando Entidades
+# Identificando Entidades
 
 Cada entidade deve possuir um identificador. Um identificador é um conjunto de um ou mais atributos cujos valores servem para distinguir uma ocorrência da entidade das demais ocorrências dessa mesma entidade. Em outras palavras, ele é utilizado para identificar de maneira única cada registro dentro de uma tabela em um banco de dados. No diagrama Entidade-Relacionamento, os identificadores são representados por círculos pretos ligados as entidades ou relacionamentos. 
 
@@ -160,7 +160,7 @@ O modelo ER acima diz o seguinte: *um empregado pode ter nenhum ou vários depen
 
 ***
 
-## Identificando Relacionamentos
+# Identificando Relacionamentos
 
 Em casos de relacionamentos do tipo n:n (muitos pra muitos), geralmente criamos uma tabela extra chamada tabela associativa ou tabela de junção. Essa tabela irá conter como identificador primário uma combinação das chaves primárias provenientes de cada entidade que está ligada ao relacionamento. A ocorrência de um relacionamento advém da ocorrência de cada instância da entidade participante do relacionamento.
 
@@ -174,7 +174,7 @@ De acordo com a figura acima, um médico pode ter consulta com diversos paciente
 
 ***
 
-## Generalização/Especialização
+# Generalização/Especialização
 
 O conceito de generalização/especialização em um modelo ER diz respeito a uma hierarquia de entidades,  onde uma entidade genérica fornece atributos  comuns a todas as entidades especializadas, enquanto as entidades mais especializadas pode conter atributos mais específicos. O símbolo que representa uma generalização/especialização é um triângulo isósceles, como mostrado abaixo:
 
@@ -184,7 +184,7 @@ A tradução do modelo acima é que *uma filial está relacionada a nenhum ou v�
 
 A generalização/especialização pode ser dividida em dois tipos: A total e parcial. Ela será definida entre uma das duas de acordo com a obrigatoriedade ou não de uma ocorrência da entidade genérica corresponder a uma ocorrência da entidade especializada.
 
-### Generalização/especialização total
+## Generalização/especialização total
 
 Ocorre quando a ocorrência de uma entidade genérica tem que, obrigatoriamente, estar relacionada a uma ocorrência de uma entidade especializada, como por exemplo:
 
@@ -192,7 +192,7 @@ Ocorre quando a ocorrência de uma entidade genérica tem que, obrigatoriamente,
 
 Na figura acima, cada instância de cliente precisa estar associada, obrigatoriamente, a entidade pessoa física ou pessoa jurídica. O símbolo que representa uma generalização/especialização total é o t. 
 
-### Generalização/especialização parcial
+## Generalização/especialização parcial
 
 Neste caso nem toda ocorrência da entidade genérica precisa estar associada a uma ocorrência da entidade especializada. Segue abaixo um exemplo de uma generalização/especialização parcial:
 
@@ -200,7 +200,7 @@ Neste caso nem toda ocorrência da entidade genérica precisa estar associada a 
 
 A figura acima mostra a situação na qual um funcionário pode não ser nem motorista, nem secretária. Sendo assim, não há uma obrigatoriedade de associar uma instância de funcionário a uma instância mais generalizada. Quando temos generalização/especialização parcial, geralmente temos também um atributo que define o tipo de ocorrência da entidade genérica. O símbolo que representa uma generalização/especialização parcial é o p.
 
-### Níveis de hierarquia na generalização/especialização
+## Níveis de hierarquia na generalização/especialização
 
 Uma entidade pode ser especializada em qualquer número de entidades, inclusive em uma. No exemplo da generalização/especialização parcial, se a entidade motorista for a única que possui atributos particulares, então ele será a única entidade especializada. Além disso, não há limites no número de níveis hierárquicos da generalização/especialização. Uma entidade generalizada pode ser genérica para outras entidades. É possível inclusive que uma mesma entidade seja especialização de diversas classes genéricas, que é chamada de herança múltipla. Segue abaixo um exemplo de diferentes níveis de hierarquia e herança múltipla:
 
@@ -213,7 +213,7 @@ O exemplo de herança múltipla se dá através da entidade *veículo anfíbio*,
 **OBS:** A fonte de estudos trata a generalização/especialização como exclusiva, ou seja, uma instância de veículo deve corresponder a um automóvel, um veículo anfíbio ou um barco. Não podemos ter uma mesma instância associada a mais de uma entidade especializada.
 
 ***
-## Entidade Associativa
+# Entidade Associativa
 
 Um relacionamento na modelagem de dados é dado por uma associação entre entidades, como exemplificado abaixo:
 
@@ -227,7 +227,7 @@ A representação gráfica de uma entidade associativa é um retângulo em torno
 
 Note que agora é possível associar relacionamentos entre si, pois a entidade associativa atua simultaneamente como entidade e como relacionamento. Isso permite que haja diferentes registros referentes a uma mesma associação MÉDICO e PACIENTE. Caso não houvesse essa tabela associativa, somente o último registro seria guardado, pois não haveria modo de diferenciar a ocorrência da associação MEDICO e PACIENTE.  
 
-### Uma alternativa a entidade associativa
+## Uma alternativa a entidade associativa
 
 Uma alternativa ao exemplo dado no tópico de entidade associativa é apresentada abaixo:
 
@@ -237,7 +237,7 @@ A alternativa é tornar a consulta uma tabela que possua um relacionamento n:1 t
 
 ***
 
-## Propriedades de modelos ER
+# Propriedades de modelos ER
 
 Algumas propriedades podem ser atribuídas a modelos ER, como por exemplo:
 
@@ -258,11 +258,11 @@ Algumas propriedades podem ser atribuídas a modelos ER, como por exemplo:
 
 ***
 
-## Identificando Construções
+# Identificando Construções
 
 Quando queremos modelar um objeto do mundo real para uma abordagem ER temos diversas possibilidades diferentes. Muitas vezes a decisão a ser tomada em relação a um objeto ser modelado como atributo, entidade ou relacionamento dependem do contexto dado. Conforme vamos criando e modelando um banco de dados, podemos e devemos realizar modificações conforme a necessidade vai surgindo. Portanto, não é recomendado ficar muito tempo preso num mesmo conceito.
 
-### Como decidir entre modelar um objeto como sendo um atributo, ou um relacionamento?
+## Como decidir entre modelar um objeto como sendo um atributo, ou um relacionamento?
 
 A figura abaixo apresenta duas possibilidades de modelagem de um mesmo objeto (cor):
 
@@ -276,10 +276,10 @@ A decisão de modelar um objeto como atributo ou como entidade depende de alguns
 2. **Domínio de valores fixo ou mutável**
     - Se o conjunto de valores for fixo durante toda vida do sistema, ele pode ser modelado como um atributo. Por exemplo, se tivermos uma quantidade fixa de cores disponíveis, podemos modelar esse conjunto de cores como atributo de automóvel. Caso o conjunto de valores a ser modelado se modifica com o tempo, então é necessário modelar o objeto como uma entidade.
     - Por exemplo, se temos as opções, verde, vermelho e preto para um determinado carro, o objeto cor pode ser modelado como um atributo. Caso haja a necessidade de adicionar mais cores futuramente então o objeto deverá ser modelado como entidade.
-#### Resumindo
+### Resumindo
 - Se o objeto tiver relacionamento com um outro objeto, ou se o objeto tiver atributos próprios, então ele deverá ser uma entidade; Se o objeto possuir um conjunto de valores variável, então ele deverá ser uma entidade; Se o objeto possui um conjunto de valores fixos, e não possua vínculos com outros objetos, então dele deverá ser um atributo.
 
-### Como decidir entre modelar um objeto como sendo um atributo ou uma generalização/especialização?
+## Como decidir entre modelar um objeto como sendo um atributo ou uma generalização/especialização?
 
 Considere os dois casos abaixo:
 
@@ -291,25 +291,25 @@ No exemplo dado podemos escolher entre ter um atributo relacionado a categoria f
 
 ***
 
-## Como fazer a verificação do modelo para saber se está correto?
+# Como fazer a verificação do modelo para saber se está correto?
 
 Ao criarmos nosso modelo ER, precisamos verificar se o mesmo se encontra dentro das “regras” da modelagem. Para um modelo ser considerado bom ele deve seguir uma série de requisitos, como ser completo, ser correto e não conter redundâncias. Segue abaixo uma breve explicação de cada requisito:
 
-### Modelo Correto
+## Modelo Correto
 
 Para um modelo ER ser considerado correto precisamos garantir que não haja erros de modelagem. Os erros de modelagem podem ser divididos em dois tipos, os *erros sintáticos* e os *erros semânticos*.
 
 - **Erros sintáticos:** ocorrem quando o modelo não respeita as regras de construção de um modelo ER. Por exemplo, associar atributos a outros atributos, associar relacionamentos a outros relacionamentos, especializar relacionamentos ou atributos, entre outros.
 - **Erros semânticos:** ocorrem quando o modelo não representa a realidade de forma consistente. Alguns exemplos de erros semânticos são: estabelecer associações incorretas, usar uma entidade do modelo como atributo de outra entidade, usar o número incorreto de entidades em um relacionamento, entre outros.
 
-### Modelo Completo
+## Modelo Completo
 
 Para um modelo ser considerado completo ele precisa ter todas as propriedades desejáveis do banco de dados. Isso significa que:
 
 - **Todos os dados relevantes estão presentes no modelo:** O modelo deve conter todas as entidades e relacionamentos necessários para armazenar as informações que o sistema precisa.
 - **As transações de modificação podem ser executadas:** Todas as operações sobre os dados, como inserções, atualizações e exclusões, devem ser devidamente implementadas conforme a necessidade do sistema. Assim, o banco de dados suportará as operações necessárias para a manutenção do sistema.
 
-### Modelo livre de redundâncias
+## Modelo livre de redundâncias
 
 Um modelo deve ser mínimo, isto é, livre de conceitos redundantes. No conceito de banco de dados, a palavra redundante é abstrata e depende da interpretação do modelador. Por exemplo, considere o exemplo abaixo:
 
@@ -323,23 +323,23 @@ Podemos verificar se um relacionamento é redundante ao tentarmos tirar o relaci
 
 Um outro tipo de redundância que pode aparecer em modelos ER são atributos redundantes. Quando temos um atributo que pode ser obtido automaticamente através de cálculo ou de busca no banco de dados, não tem sentido armazená-lo. Armazenar um atributo desse tipo configura em uma redundância. Por exemplo, se temos uma entidade que possuí a data de nascimento como atributo, seria redundante adicionar um atributo referente a idade, pois a idade pode ser calculada através da data de nascimento.
 
-### Modelo deve refletir o aspecto temporal
+## Modelo deve refletir o aspecto temporal
 
 O modelo do banco de dados deve refletir não apenas o estado atual do dado, mas também ter a flexibilidade de lidar com informações que mudam ao longo do tempo. Algumas informações podem variar com o tempo, e é essencial identificar essas informações para planejar como o banco de dados irá trabalhar com elas.
 
 ***
 
-## Estratégias de Modelagem
+# Estratégias de Modelagem
 
 Podemos ter diferentes técnicas para modelar um banco de dados. Primeiramente devemos verificar qual será a fonte de informação que nosso modelo irá se basear. As fontes de informação podem ser dados existentes ou o conhecimento do modelador em relação ao sistema. As estratégias de modelagem nos fornecem um passo a passo de como modelar um banco de dados.
 
-### Partindo de dados existentes
+## Partindo de dados existentes
 
 Uma possibilidade de fonte de informação para o processo de modelagem de dados são descrições de dados já existentes. Dentro desse contexto podemos ter duas situações. Uma delas é quando temos um sistema de banco de dados já existente e implementado e queremos criar um modelo conceitual para esse sistema. Nesse caso, utilizamos a estratégia engenharia reversa, no qual a partir de um sistema já pronto, nós construímos um modelo para esse sistema.
 
 Podemos também modelar um banco de dados a partir de documentos físicos ou não automatizados. Nesse caso, uma boa estratégia é a “bottom-up”, no qual começamos a partir dos atributos, em seguida identificando as entidades, e por fim, o relacionamento. Essa forma é adequada de se trabalhar quando já se dispõe dos atributos.
 
-### Partindo do conhecimento de pessoas
+## Partindo do conhecimento de pessoas
 
 Este é o caso de sistemas que estão sendo criados do zero, onde não há informações sobre os dados existentes. Neste caso caso podemos utilizar duas estratégias, sendo elas, “top-down” e “inside-out”.
 
