@@ -115,6 +115,7 @@ A figura 12 mostra um relacionamento com cardinalidades máxima e mínima, e um 
 
 A figura acima traduz-se em um empregado está associado a uma única mesa, e uma mesa pode ter 0 ou 1 empregados alocados nela.
 
+💻[Exemplo completo de um diagrama Entidade-Relacionamento](https://github.com/dinhocss/Banco_de_Dados/wiki/Anota%C3%A7%C3%B5es-complementares#exemplo-completo-de-um-diagrama-entidade-relacionamento)
 ***
 
 ## Atributos
