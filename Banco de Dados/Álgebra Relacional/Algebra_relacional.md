@@ -300,3 +300,42 @@ Retorna todas as tuplas das duas tabelas, preenchendo com `NULL` onde não houve
 | Junção Externa Esquerda   | Retorna todas as tuplas da primeira tabela, mesmo as que não possuem correspondência.         |
 | Junção Externa Direita    | Retorna todas as tuplas da segunda tabela, mesmo as que não possuem correspondência.          |
 | Junção Externa Integral   | Retorna todas as tuplas de ambas as tabelas, preenchendo com `NULL` onde não há correspondência.|
+
+***
+
+## União, Intersecção e Diferença
+
+Várias operações de teoria de conjuntos podem ser aplicadas para mesclar informações sobre duas relações, como *união*, *intersecção* e *diferença*. Essas três operações possuem alguns elementos em comum, como por exemplo:
+Sendo R e S conjuntos que representam duas relações, para realizarmos operações de conjuntos sobre essas relações precisamos do seguinte:
+- R e S precisam ter o mesmo número de atributos.
+- Os domínios dos atributos devem ser compatíveis entre si.
+- Os schemas de R e S devem ser compatíveis, ou seja, o mesmo número de atributos, com o mesmo tipo na mesma ordem.
+- A *união* é dada por R∪S, e contem todos os elementos que estão em R ou S.
+- A *intersecção* é dada por R∩S, e contém todos os elementos que estão em R e S.
+- A *diferença* é dada por R-S, e contém todos os elementos que estão em R, mas não estão em S.
+
+  ## Produto cartesiano
+
+É uma operação binária, ou seja, é o produto de duas tabelas. A notação é dada por RxS, e nos fornece a combinação de todos os elementos de R com todos os elementos de S. Esta operação serve como base para as operações de junção, pois é uma maneira de relacionar duas tabelas e exibí-las em uma única tabela. 
+
+Diferenta das operações de União, Intersecção e Diferença,os schemas entre as tabelas podem ser diferentes.
+
+***
+
+## Resumo geral
+
+|Operação|Resultado|Como utilizar|
+|---|---|---|
+|σ (Seleção)|Uma tabela com as tuplas resultantes de uma condição booleana|σBugdet < 100000 ^ ReleaseDate = 2000 (Movies)|
+|π(Projeção)|Uma tabela com os atributos desejados, contendo o mesmo número de registros da tabela original|πTitle, Distribution(Movies)|
+| ⋈ (Junção Natural)         | Combina tuplas de duas relações que possuem valores iguais nos atributos comuns                            | `R ⋈ S`                                                         |
+| ⋈θ (Junção Theta)          | Combina tuplas de duas relações que atendem a uma condição específica, podendo incluir operadores como `=`, `<`, `>` | `R ⋈_{R.A = S.B} S`                                            |
+| ⋉ (Semi-junção)            | Retorna apenas as tuplas de `R` que possuem correspondência com `S` em uma condição especificada           | `R ⋉_{R.A = S.B} S`                                            |
+| ⟕ (Junção Externa Esquerda)| Inclui todas as tuplas de `R` e as correspondentes de `S`, com `NULL` para valores ausentes de `S`         | `R ⟕ S`                                                         |
+| ⟖ (Junção Externa Direita) | Inclui todas as tuplas de `S` e as correspondentes de `R`, com `NULL` para valores ausentes de `R`         | `R ⟖ S`                                                         |
+| ⟗ (Junção Externa Integral)| Inclui todas as tuplas de `R` e `S`, com `NULL` para valores ausentes de qualquer uma das relações         | `R ⟗ S`                                                         |
+| ∪ (União)                  | Combina todas as tuplas de `R` e `S`, sem duplicações, desde que `R` e `S` tenham o mesmo esquema          | `R ∪ S`                                                         |
+| ∩ (Intersecção)            | Retorna as tuplas comuns a `R` e `S`                                                                       | `R ∩ S`                                                         |
+| - (Diferença)              | Retorna as tuplas que estão em `R` mas não em `S`                                                          | `R - S`                                                         |
+| × (Produto Cartesiano)     | Combina todas as tuplas de `R` com todas as tuplas de `S`, formando pares                                 | `R × S`                                                         |
+| ÷ (Divisão)                | Retorna as tuplas de `R` que têm correspondência com todas as tuplas de `S` em um subconjunto de atributos | `R ÷ S`                                                         |
