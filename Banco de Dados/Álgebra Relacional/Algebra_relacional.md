@@ -300,34 +300,3 @@ Retorna todas as tuplas das duas tabelas, preenchendo com `NULL` onde não houve
 | Junção Externa Esquerda   | Retorna todas as tuplas da primeira tabela, mesmo as que não possuem correspondência.         |
 | Junção Externa Direita    | Retorna todas as tuplas da segunda tabela, mesmo as que não possuem correspondência.          |
 | Junção Externa Integral   | Retorna todas as tuplas de ambas as tabelas, preenchendo com `NULL` onde não há correspondência.|
-
-### Exercícios
-1. Faça uma consulta que retorna os diretores e os gêneros em que atuam
-   
-    `directors⨝(directors.id = directors_genres.director_id) directors_genres`
-  
-2. Faça uma consulta que retorna os nomes dos diretores e os nomes dos gêneros em que atuam com probabilidade (prob) maior do que 0.5
-
-    `directors⨝(directors.id = directors_genres.director_id) σprob>0.5 (directors_genres)`
-
-3. Faça uma consulta que retorna os nomes dos filmes lançados após o ano de 2000 (year), o primeiro nome e sobrenome dos atores que atuaram nesses filmes, juntamente com seus papéis
-
-    `πname, first_name, last_name, role((σ year > 2000 (movies) ⨝ (movies.id = roles.movie_id) roles) ⨝ (actors.id = roles.actor_id) actors)`
-
-4. Faça uma consulta que retorna o nome dos filmes e o nome de seu gênero, para osfilmes lançados entre 1950 e 1970
-
-   `πname,genre(σyear >= 1950 ∧ year<= 1970 (movies ⨝ (movies.id = movies_genres.movie_id) movies_genres))`
-
-5. Faça uma consulta que retorna os nomes dos filmes que possuem rank maior do que 8, juntamente com o primeiro nome e sobrenome de seus diretores
-   
-   `πname,first_name,last_name(σrank>8 (movies ⨝ (movies.id = movies_directors.movie_id) movies_directors) ⨝ (movies_directors.director_id = directors.id) directors)`
-
-6. Faça uma consulta que retorna os dados dos atores que atuaram em algum filme com papel de ‘Kid’
-
-   `πfirst_name,last_name,gender ((movies ⨝ (movies.id = roles.movie_id) σrole='Kid' (roles)) ⨝ (roles.actor_id = actors.id) actors)`
-
-7. Faça uma consulta que retorna o primeiro nome dos atores que possuem o mesmo sobrenome. A consulta deve retornar duas colunas first_name, e uma coluna last_name. Por exemplo, se Cameron Dias e Lucas Dias são atores, como eles possuem o mesmo sobrenome, a consulta deve retornar uma linha com os valores Cameron em uma coluna, Lucas na outra, e Dias na terceira coluna. A consulta não deve mostrar valores duplicados nas colunas first_name (por exemplo, não deve mostrar Cameron, Cameron, Dias)
-
-   `π actors.first_name, actors2.first_name, actors.last_name(σ(actors.first_name ≠ actors2.first_name)(actors ⨝ (actors.last_name = actors2.last_name) (ρ actors2(actors))))`
-   
-
