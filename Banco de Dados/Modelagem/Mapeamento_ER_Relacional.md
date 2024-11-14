@@ -272,21 +272,21 @@ A tabela EMPREGADO incluiu CREA, Habilitação e codRamo. Isto ocorre porque cod
 
 Para transformarmos uma generalização/especialização em um modelo lógico, podemos fazer a tradução através de uma tabela por entidade especializada. Neste caso teríamos, além da tabela genérica, todas as tabelas especializadas que contém algum atributo adicional além da chave primária. No caso da imagem acima, o modelo lógico seria o seguinte:
 
-- **DEPARTAMENTO (codDept, nome)**
-- **EMPREGADO (codEmp, Tipo, nome, CIC, codDept)**
+- **DEPARTAMENTO (*codDept*, nome)**
+- **EMPREGADO (*codEmp*, Tipo, nome, CIC, codDept)**
     - **codDept Referencia DEPARTAMENTO**
-- **MOTORISTA (codEmp, CartHab)**
+- **MOTORISTA (*codEmp*, CartHab)**
     - **codEmp Referencia EMPREGADO**
-- **ENGENHEIRO (codEmp, CREA, codRamo)**
+- **ENGENHEIRO (*codEmp*, CREA, codRamo)**
     - **codEmp Referencia EMPREGADO**
     - **corRamo Referencia RAMO**
-- **RAMO (codRamo, nome)**
-- **PROJETO (codProj, nome)**
-- **PARTICIPACAO (codEmp,codProj)**
+- **RAMO (*codRamo*, nome)**
+- **PROJETO (*codProj*, nome)**
+- **PARTICIPACAO (*codEmp*,*codProj*)**
     - **codEmp Referencia EMPREGADO**
     - **codProj Referencia PROJETO**
-- **PROCTEXT (codProc, nome)**
-- **DOMINIO (codEmp,codProc)**
+- **PROCTEXT (*codProc*, nome)**
+- **DOMINIO (*codEmp*,*codProc*)**
     - **codEmp Referencia EMPREGADO**
     - **codProc Referencia DOMINIO**
 
@@ -303,29 +303,22 @@ As vantagens em relação a uma tabela para cada hierarquia especializada são:
 
 - Quando vamos traduzir um modelo relacional em um modelo lógico temos duas possibilidades quando nos tratamos de generalização/especialização. Podemos ter o caso de uma única tabela representando a hierarquia, nesse caso, você terá atributos referentes a todas as tabelas especializadas, portanto terá valores nulos. Em contraste com uma tabela por hierarquia, onde cada atributo será referente aquela única tabela, diminuindo os atributos opcionais.
 
--**PRODUTO (codProd, CGC, NomeComercial, TipoEmbalagem, Quantidade, PrecoUnitario)**
+-**PRODUTO (*codProd*, CGC, NomeComercial, TipoEmbalagem, Quantidade, PrecoUnitario)**
     -**CGC Referencia FABRICANTE**
--**FABRICANTE (CGC, Nome, Endereco)**
--**MEDICAMENTO (codProd,CGC, Tarja, Formula)**
+-**FABRICANTE (*CGC*, Nome, Endereco)**
+-**MEDICAMENTO (*codProd*,CGC, Tarja, Formula)**
     -**CGC Referencia FABRICANTE**
--**PERFUMARIA (codProd, CGC,Tipo)**
+-**PERFUMARIA (*codProd*, CGC,Tipo)**
     -**CGC Referencia FABRICANTE**
--**VENDA(numNota, Data, NomeCliente, CidadeCliente)**
--**PERFUMARIAVENDA(codProd, numNota, CGC, Quantidade, Imposto)**
-
-**(codProd, CGC) Referencia PRODUTO**
-
-**numNota Referencia VENDA**
-
-**CGC Referencia FABRICANTE**
-
-**MEDICAMENTORECEITAVENDA (CRM, NumRec, numNota, Quantidade, Imposto)**
-
-**numNota Referencia VENDA**
-
-**(CRM, NumRec) Referencia RECEITAMEDICA**
-
-**RECEITAMEDICA(CRM,NumRec, Data)**
+-**VENDA(*numNota*, Data, NomeCliente, CidadeCliente)**
+-**PERFUMARIAVENDA(*codProd*, *numNota*, CGC, Quantidade, Imposto)**
+    -**(codProd, CGC) Referencia PRODUTO**
+    -**numNota Referencia VENDA**
+    -**CGC Referencia FABRICANTE**
+-**MEDICAMENTORECEITAVENDA (CRM, NumRec, numNota, Quantidade, Imposto)**
+    -**numNota Referencia VENDA**
+    -**(CRM, NumRec) Referencia RECEITAMEDICA**
+-**RECEITAMEDICA(CRM,NumRec, Data)**
 
 
 
