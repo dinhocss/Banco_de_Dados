@@ -191,6 +191,7 @@ Sempre que tivermos duas entidades em que seus relacionamentos sejam n:n, nós u
 Até o momento os relacionamentos trabalhados foram binários. A implementação de um relacionamento de grau maior que dois se dá nos seguintes passos:
 
 1. O relacionamento se torna uma entidade, formando um relacionamento binário a cada uma das entidades que participavam do relacionamento original.
+   
 2. As regras de implementação citadas acima funcionam para relacionamentos binários deste mesmo tipo. 
 
 A figura abaixo mostra um relacionamento ternário que é transformado em três relacionamentos binários:
@@ -302,23 +303,15 @@ As vantagens em relação a uma tabela para cada hierarquia especializada são:
 
 - Quando vamos traduzir um modelo relacional em um modelo lógico temos duas possibilidades quando nos tratamos de generalização/especialização. Podemos ter o caso de uma única tabela representando a hierarquia, nesse caso, você terá atributos referentes a todas as tabelas especializadas, portanto terá valores nulos. Em contraste com uma tabela por hierarquia, onde cada atributo será referente aquela única tabela, diminuindo os atributos opcionais.
 
-**PRODUTO (codProd, CGC, NomeComercial, TipoEmbalagem, Quantidade, PrecoUnitario)**
-
-**CGC Referencia FABRICANTE**
-
-**FABRICANTE (CGC, Nome, Endereco)**
-
-**MEDICAMENTO (codProd,CGC, Tarja, Formula)**
-
-**CGC Referencia FABRICANTE**
-
-**PERFUMARIA (codProd, CGC,Tipo)**
-
-**CGC Referencia FABRICANTE**
-
-**VENDA(numNota, Data, NomeCliente, CidadeCliente)**
-
-**PERFUMARIAVENDA(codProd, numNota, CGC, Quantidade, Imposto)**
+-**PRODUTO (codProd, CGC, NomeComercial, TipoEmbalagem, Quantidade, PrecoUnitario)**
+    -**CGC Referencia FABRICANTE**
+-**FABRICANTE (CGC, Nome, Endereco)**
+-**MEDICAMENTO (codProd,CGC, Tarja, Formula)**
+    -**CGC Referencia FABRICANTE**
+-**PERFUMARIA (codProd, CGC,Tipo)**
+    -**CGC Referencia FABRICANTE**
+-**VENDA(numNota, Data, NomeCliente, CidadeCliente)**
+-**PERFUMARIAVENDA(codProd, numNota, CGC, Quantidade, Imposto)**
 
 **(codProd, CGC) Referencia PRODUTO**
 
