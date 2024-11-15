@@ -9,3 +9,6 @@
 
 ### Álgebra Relacional:
 ➡️ [Álgebra Relacional](https://github.com/dinhocss/Banco_de_Dados/blob/4e3127994301623cd125a99439e1babd6442dc38/Banco%20de%20Dados/%C3%81lgebra%20Relacional/Algebra_relacional.md)
+
+### SQL:
+➡️[SQL-DDL](https://github.com/dinhocss/Banco_de_Dados/blob/7579c16aa07e956aee614b29976c615aa9a485a7/Banco%20de%20Dados/SQL/SQL_DDL.md#organiza%C3%A7%C3%A3o)
