@@ -82,7 +82,7 @@ A operação de seleção é um filtro poderoso e flexível que permite escolher
 
 A operação de **projeção** em álgebra relacional permite selecionar **colunas específicas** (ou atributos) de uma tabela, retornando uma nova tabela com apenas esses atributos desejados. A projeção é útil para focar em informações específicas sem modificar as linhas da tabela original.
 
-## Características da Operação de Projeção
+### Características da Operação de Projeção
 
 - **Notação**: A projeção é representada pelo símbolo **π** (pi).
     - Notação:  
@@ -148,6 +148,19 @@ A operação de projeção é ideal para selecionar colunas específicas de uma 
 **Ordem de Atributos**: A operação é não comutativa.
 
 **Resultado**: Tabela com apenas as colunas projetadas.
+
+## Operação de Renomeação
+A operação de renomeação é dada pelo símbolo **ρ**, e é utilizada para renomear colunas ou nomes de tabelas. 
+
+### Características da operação de Renomeação
+
+- **Notação**: A renomeação é representada pelo símbolo **ρ**.
+    - Notação:  
+      `ρNovaTabela (TabelaAntiga)`  
+
+- **Parâmetros**: Na renomeação os parâmetros são a tabela que se deseja renomear e o nome da tabela desejada.
+
+- **Resultado**: A operação retorna a tabela com o nome desejado.
 
 ## Diferentes Tipos de Junção
 As operações de **junção** são fundamentais na álgebra relacional, permitindo combinar dados de duas tabelas com base em uma condição. As junções são úteis para relacionar tabelas em um banco de dados relacional e extrair informações combinadas.
