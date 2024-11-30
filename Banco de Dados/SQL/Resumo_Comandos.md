@@ -4,8 +4,8 @@
 | ---------------- | ------------------------------------------ | ---------------------------------------------- |
 | CREATE SCHEMA    | Cria um novo esquema                       | CREATE SCHEMA financeiro;                      |
 | DROP SCHEMA      | Remove um schema existente                 | DROP SCHEMA financeiro;                        |
-| [[CREATE TABLE]] | Cria uma nova tabela                       | CREATE TABLE Funcionarios()                    |
-| [[ALTER TABLE]]  | Modifica atributos de uma tabela existente | ALTER TABLE Funcionarios ADD COLUMN Idade INT; |
+| CREATE TABLE | Cria uma nova tabela                       | CREATE TABLE Funcionarios()                    |
+| ALTER TABLE | Modifica atributos de uma tabela existente | ALTER TABLE Funcionarios ADD COLUMN Idade INT; |
 | DROP TABLE       | Remove uma tabela existente                | DROP TABLE Funcionarios                        |
 
 ---
