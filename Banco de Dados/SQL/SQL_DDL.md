@@ -57,8 +57,9 @@ Um exemplo de construção de uma tabela em um banco de dados, com suas devidas 
 
 ```
 CREATE TABLE FUNCIONARIO(
-  Pnome VARCHAR(15) NOT NULL,
+  Pnome VARCHAR(15) NOT NULL DEFAULT 'Desconhecido',
   Unome VARCHAR(15) NOT NULL,
+  Idade INT NOT NULL CHECK(Idade>18),
   Cpf CHAR(11) NOT NULL,
   Datanasc DATE,
   Endereco VARCHAR(30),
@@ -67,4 +68,58 @@ CREATE TABLE FUNCIONARIO(
   FOREIGN KEY(Cpf_supervisor) REFERENCES FUNCIONARIO(Cpf)
 );
 ```
+Podemos também adicionar valores padrões através da palavra-chave *DEFAULT*, onde a cada nova tupla que não for informado um valor válido, o valor default será adicionado.
+Uma outra restrição que pode ser aplicada sobre os atributos é CHECK. A restrição CHECK recebe como parâmetro uma condição a ser satisfeita para garantir a validade do dado. Caso o usuário tente adicionar um valor que não satisfaz a condição, a inserção não é feita. 
 
+Em relação a integridade referencial, temos as chaves primárias e estrangeiras. Quando tivermos uma tabela com chave primária única, podemos declará-la diretamente no atributo. Por exemplo, a tabela FUNCIONARIO poderia ser escrita assim:
+
+```
+Cpf CHAR(11) NOT NULL PRIMARY KEY;
+```
+
+Quando criamos uma restrição de integridade um nome é gerado automaticamente. Porém, podemos explicitar um nome desejado, facilitando a manipulação e modificação dos dados referentes aquela restrição. Isso é feito através da palavra-chave *CONSTRAINT* e é utilizada da seguinte maneira:
+
+```
+idade INT NOT NULL CONSTRAINT chk_idade_minima CHECK (idade>18)
+```
+
+Para chaves estrangeiras utilizamos a restrição *FOREIGN KEY*, onde precisamos especificar, além do atributo que será a chave estrangeira, a tabela onde a chave primária está e o nome da chave primária. Junto da FOREIGN KEY podemos também definir ações para quando a chave primária que está sendo referenciada modificar seu valor, ou o registro for apagado. Para isso, podemos definir ações quando a chave primária é modificada (ON UPDATE) ou quando o registro da chave primária é removido (ON DELETE). Podemos ter opções como CASCADE, que atribui as modificações da chave primária na chave estrangeira, SET NULL, que define valor nulo caso a chave primária seja modificada ou removida, e SET DEFAULT, que define um valor default para quando a chave primária for modificada ou excluída. Segue um exemplo de como essas restrições são definidas:
+
+```
+FOREIGN KEY(Cpf_supervisor) REFERENCES Funcionario(Cpf)
+ON DELETE SET NULL
+ON UPDATE CASCADE
+```
+# Alteração de esquema
+
+## O comando DROP
+
+Utilizamos o comando DROP para excluir um esquema, tabela, restrições ou domínios. Existem duas opções de comportamentos para DROP, que são CASCADE e RESTRICT. Ao utilizarmos `DROP Funcionarios CASCADE`, nós excluímos a tabela Funcionarios, junto com todas suas tuplas e atributos. Ao utilizarmos RESTRICT no lugar de CASCADE, a tabela só será removida se não houver nenhuma referência a outras tabelas. Exemplo:
+
+```
+DROP SCHEMA Universidade CASCADE
+DROP TABLE Funcionario RESTRICT
+```
+
+## O comando ALTER
+
+Podemos utilizar o comando ALTER para modificar tabelas já existentes, como adição e remoção de colunas, alterar uma definição de coluna ou acrescentar ou remover restrições. Por exemplo, para adicionar colunas a tabelas já existentes podemos utilizar o seguinte comando:
+
+```
+ALTER TABLE universidade.funcionario ADD COLUMN Telefone VARCHAR(11);
+```
+
+Será acrescentado um atributo novo chamado Telefone na tabela *funcionario* no esquema *universidade*. Além disso, podemos alterar ou remover colunas. Segue abaixo um exemplo para cada caso:
+
+```
+ALTER TABLE universidade.funcionario ALTER COLUMN Cpf_supervisor SET DEFAULT '000000000';
+ALTER TABLE universidade.funcionario DROP COLUMN Cpf_supervisor CASCADE;
+```
+
+Por último, podemos também modificar atributos já existentes utilizando *MODIFY COLUMN*. Por exemplo:
+
+```
+ALTER TABLE universidade.funcionario MODIFY COLUMN Idade INT NOT NULL;
+```
+
+**OBS**: Podemos adicionar restrições através de `ALTER TABLE fabrica.produto ADD CONSTRAINT chk_peso CHECK(Peso>50)`.
