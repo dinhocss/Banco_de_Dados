@@ -12,3 +12,4 @@
 
 ### SQL:
 ➡️[SQL-DDL](https://github.com/dinhocss/Banco_de_Dados/blob/7579c16aa07e956aee614b29976c615aa9a485a7/Banco%20de%20Dados/SQL/SQL_DDL.md#organiza%C3%A7%C3%A3o)
+➡️[SQL-DQL](https://github.com/dinhocss/Banco_de_Dados/blob/main/Banco%20de%20Dados/SQL/SQL_DQL.md)
