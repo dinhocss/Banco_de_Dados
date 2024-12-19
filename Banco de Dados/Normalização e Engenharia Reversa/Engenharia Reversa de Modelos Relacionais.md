@@ -51,3 +51,7 @@ Após termos feito a classificação das tabelas em relação as suas entidades 
 Toda chave estrangeira que não corresponde a um relacionamento N:N nem a uma entidade especializada possui relacionamento ou 1:n ou 1:1. Não há regras para definir relacionamentos 1:n e 1:1. Para isso, precisamos analisar os possíveis conteúdos do banco de dados. No caso do exemplo dado acima, os relacionamentos 1:n e 1:1 são definidos nas tabelas *Sala* e *Turma*, portanto, teríamos:
 ![image](https://github.com/user-attachments/assets/430c5057-6921-4e3b-95f3-91f64b8374a0)
 
+## Definição de atributos
+
+Nesta etapa definimos os nomes de todos os atributos que não são chaves estrangeiras. É necessário observar que as chaves estrangeiras não são atributos num diagrama ER. Isto ocorre pois essas chaves são representadas por relacionamentos, e eles já são implementados no diagrama ER. Portanto, a nomeação dos atributos pode ser feita da seguinte maneira:
+![image](https://github.com/user-attachments/assets/a967574e-c8b8-456f-a77f-39361c87b479)
