@@ -20,4 +20,8 @@ Por último, após obtermos o esquema relacional completo, podemos transformá-l
 Considere um documento que representa um sistema de gerência de projetos. Cada projeto é identificado por um código, uma descrição e o tipo de projeto. E cada projeto possui os empregados que estão relacionados a eles. Já para cada empregado tempos o código, nome, salário, categoria, data do inicio no projeto e o tempo alocado no projeto. A figura abaixo representa esse documento:
 ![image](https://github.com/user-attachments/assets/41b28106-ac79-4ca2-ab40-fd7eda3b962f)
 
+## Representação na forma de tabela não normalizada
+
+O primeiro passo é transformar os dados contidos no arquivo a ser normalizado em um esquema relacional. A tabela não normalizada referente  ao documento apresentado acima é representada abaixo:
+![image](https://github.com/user-attachments/assets/e1463340-f943-4385-b383-30c5279084f1)
 
