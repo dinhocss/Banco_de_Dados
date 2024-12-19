@@ -16,3 +16,6 @@
 ➡️[SQL-DQL](https://github.com/dinhocss/Banco_de_Dados/blob/4ebdf6ad6e3555e2092a58333f749daae30a9802/Banco%20de%20Dados/SQL/SQL_DQL.md)
 
 ➡️[SQL-DML](https://github.com/dinhocss/Banco_de_Dados/blob/4ebdf6ad6e3555e2092a58333f749daae30a9802/Banco%20de%20Dados/SQL/SQL%20-%20DML.md)
+
+### Normalização e Engenharia Reversa:
+➡️[Engenharia Reversa de Modelos Relacionais]()
