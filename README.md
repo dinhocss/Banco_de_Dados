@@ -19,3 +19,6 @@
 
 ### Normalização e Engenharia Reversa:
 ➡️[Engenharia Reversa de Modelos Relacionais]()
+
+## Referências
+➡️ Projeto de Banco de Dados - Carlos Alberto Heuser, 4ª ed.
