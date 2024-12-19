@@ -13,5 +13,5 @@ Depois que os arquivos são normalizados, o próximo passo é **integrar os dife
 * **Unificar informações:** Esses dados duplicados são representados apenas uma vez no esquema relacional final.
 Esse processo é essencial para garantirmos a integridade do esquema relacional, pois eliminamos as informações redundantes, melhorando o desempenho do banco de dados.
 
-Por último, após obtermos o esquema relacional completo, podemos transformá-lo em um diagrama ER. Esse processo é descrito [aqui](Banco de Dados/Normalização e Engenharia Reversa/Engenharia Reversa de Modelos Relacionais.md)
+Por último, após obtermos o esquema relacional completo, podemos transformá-lo em um diagrama ER. Esse processo é descrito [aqui](https://github.com/dinhocss/Banco_de_Dados/blob/182ba17074e19609e5680d5d61a7eaccd312a68a/Banco%20de%20Dados/Normaliza%C3%A7%C3%A3o%20e%20Engenharia%20Reversa/Engenharia%20Reversa%20de%20Modelos%20Relacionais.md)
 
