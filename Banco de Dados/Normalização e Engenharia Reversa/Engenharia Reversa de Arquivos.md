@@ -59,3 +59,27 @@ Tomando o exemplo visto acima referente as tabelas *Proj* e *ProjEmp*, vamos ana
 Segue abaixo um exemplo visual referente as tabelas após a 1FN:
 ![image](https://github.com/user-attachments/assets/dc57a41a-ecf1-4c97-813f-6b6ab4a5526b)
 
+**OBS:** Caso o empregado pudesse participar de apenas um projeto, a chave primária de *ProjEmp* seria unicamente *CodEmp*. 
+
+**OBS II:** Por hora, o nome das tabelas não é importante, portanto recomenda-se nomear as tabelas somente após o processo de normalização.
+
+Considere um segundo exemplo de um esquema relacional da forma não normalizada:
+Arq-Alunos(**CodAl**, NomeAl,
+		(**CodCurso**, SemIngresso)
+		(**CodDisc**,
+			(**SemDisCursada**, NotaDisc)))
+Como a tabela não normalizada possui três tabelas aninhadas, a 1FN gerará quatro tabelas. As tabelas resultantes da 1FN em relação a uma tabela não normalizada é dada por:
+Aluno(**CodAl,** NomeAl)
+AlunoCurso (**CodAl**, **CodCurso**, SemIngresso)
+AlunoDisc(**CodAl**, **CodDisc**)
+DiscSem(**CodAl**, **CodDisc**, **SemDisCursada**, NotaDisc)
+
+Note que a primeira tabela é referente a tabela não normalizada sem considerar as tabelas aninhadas. A segunda tabela possui além do seu identificador, o identificador da tabela externa correspondente a forma não normalizada. Levando em conta o mesmo princípio, a tabela *DiscSem* possui como chave primária tanto *CodAl* quanto *CodDisc*, que fazem parte de tabelas externas em relação a forma não normalizada.
+
+**OBS:** Apesar dos exemplos acima mostrar chaves primárias sendo a concatenação das chaves externas das tabelas aninhadas correspondentes, pode haver o caso de a chave primária não incluir a chave primária da tabela externa. 
+
+## Dependência funcional
+
+Para entendermos as formas normais 2FN e 3FN é necessário entender o conceito de *dependência funcional*. Considere a imagem a seguir:
+![image](https://github.com/user-attachments/assets/e4c32aca-c41a-4d57-8c6b-e7678e201f9a)
+
