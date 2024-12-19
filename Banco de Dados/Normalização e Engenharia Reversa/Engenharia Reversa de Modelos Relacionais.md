@@ -55,3 +55,15 @@ Toda chave estrangeira que não corresponde a um relacionamento N:N nem a uma en
 
 Nesta etapa definimos os nomes de todos os atributos que não são chaves estrangeiras. É necessário observar que as chaves estrangeiras não são atributos num diagrama ER. Isto ocorre pois essas chaves são representadas por relacionamentos, e eles já são implementados no diagrama ER. Portanto, a nomeação dos atributos pode ser feita da seguinte maneira:
 ![image](https://github.com/user-attachments/assets/a967574e-c8b8-456f-a77f-39361c87b479)
+
+## Definição de identificadores de entidades
+
+No último passo, são definidos os identificadores das entidades e dos relacionamentos. A regra para definição dos identificadores é a seguinte:
+* *Coluna da chave primária que não é chave estrangeira*
+	Toda coluna que é chave primária e não é chave estrangeira de outra entidade corresponde a  um atributo identificador da entidade ou relacionamento.
+* *Coluna da chave primária que é chave estrangeira*
+	Toda coluna que faz parte da chave primária e que é chave estrangeira corresponde a um identificador externo da entidade. Por exemplo, a tabela *Turma* possui como identificador (anoSem, siglaTur e codDisc). Repare que codDisc além de ser chave primária de *Turma*, também é chave estrangeira da entidade *Disciplina*. Portanto, a entidade *Turma* é identificada também pelo relacionamento com disciplina. 
+
+Executando este último passo para a engenharia reversa temos o seguinte diagrama ER:
+![image](https://github.com/user-attachments/assets/e0a13893-4b86-4091-8732-a46b2cf77679)
+
