@@ -1,0 +1,47 @@
+> O termo engenharia reversa vem do fato de usar-se como ponto de partida do processo um modelo já implementado para obter sua especificação (modelo conceitual) 
+
+# Engenharia Reversa de Modelos Relacionais
+
+No caso de um banco de dados, a engenharia reversa ocorre quando transformamos modelos mais ricos em detalhes de implementação em modelos mais abstratos. Ao tratarmos de engenharia reversa de modelos relacionais temos como ponto de partida o modelo lógico do banco de dados sendo transformado num modelo conceitural. 
+
+O processo de engenharia reversa de um modelo relacional segue os seguintes passos:
+1. Construção do modelo ER correspondente a cada tabela.
+2. Definição de relacionamentos 1:n e 1:n.
+3. Definição de atributos
+4. Definição de identificadores de entidade e relacionamento
+
+Para exemplificar o processo de engenharia reversa vamos dar um exemplo, onde parte-se de um modelo lógico, transformando-o em um modelo conceitual. O modelo lógico abaixo refere-se a um banco de dados de um sistema acadêmico, cujo o esquema é representado abaixo:
+
+Disciplina(**CodDisciplina**, NomeDisc )
+Curso(**CodCr**, NomeCr)
+Curric(**CodCr, CodDisc**, Obr/Opc)
+	CodCr referencia Curso
+	CodDisc referencia Disciplina
+Sala(**CodPr, CodSl**, Capacidade)
+	CodPr referencia Predio
+Predio(**CodPr**, Endereço)
+Turma(**Anosem, CodDisc,SiglaTur**, Capacidade, CodPr, CodSl)
+	CodDisc referencia Disciplina
+	(CodPr, CodSl) referencia Sala
+Laboratório(**CodPr, CodSl**, Equipam)
+	(CodPr,CodSl) referencia Sala
+
+A partir desse esquema lógico vamos abordar o passo a passo para transformá-lo em um modelo conceitual.
+
+## Identificação da construção ER correspondente a cada tabela
+
+Na primeira etapa da engenharia reversa de um modelo relacional verificamos para cada tabela do modelo relacional, qual construção é correspondente em relação ao modelo ER. Uma tabela pode corresponder a:
+* Uma entidade
+* Um relacionamento n:n
+* Uma entidade especializada
+
+O fator determinante para verificarmos a relação entre a tabela em questão com seu correspondente do modelo ER é através da composição de sua chave primária. Tabelas podem ser classificadas em três tipos de acordo com a composição de sua chave primária, sendo elas:
+* **Regra 1:** *Chave primária composta por mais de uma chave estrangeira*
+	As tabelas que possuem chave primária composta por mais de uma chave estrangeira implementa um relacionamento N:N entre as entidades correspondentes. Por exemplo, no esquema mostrado acima a tabela *Curric* possui como chave primária as chaves estrangeiras *CodCr* e *CodDisc*, que referenciam *Curso* e *Disciplina* respectivamente. Portanto, o correspondente desta tabela no modelo ER será um **relacionamento N:N**.
+* **Regra 2:** *Toda chave primária é uma chave estrangeira*
+	A tabela cuja chave primária é toda ela uma chave estrangeira representa uma entidade que forma uma especialização da entidade correspondente à tabela referenciada pela chave estrangeira. No esquema acima temos a tabela *Laboratório* que possui  como chave primária as chaves estrangeiras *CodPr* e *CodSl*. Note que a chave primária de Laboratório não possui nenhuma chave própria. Ambas as chaves são estrangeiras, portanto, isso configura que Laboratório é uma especialização de Sala, indicando que haverá um registro de laboratório somente se houver um regristro de Sala.
+* **Regra 3:** *Demais casos*
+	Quando a tabela em questão não possuir como chave primária duas chaves estrangeiras (regra 1) ou quando a chave primária não for totalmente composta por chaves estrangeiras (regra 2), esta tabela será representada como uma entidade. 
+
+Após termos feito a classificação das tabelas em relação as suas entidades ou relacionamentos, é possível montar um diagrama ER inicial, por exemplo:
+![image](https://github.com/user-attachments/assets/99e9838e-6a9d-4dfb-92c7-85f199fee828)
