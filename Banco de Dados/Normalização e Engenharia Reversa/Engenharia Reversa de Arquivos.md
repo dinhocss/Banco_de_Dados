@@ -25,3 +25,37 @@ Considere um documento que representa um sistema de gerência de projetos. Cada 
 O primeiro passo é transformar os dados contidos no arquivo a ser normalizado em um esquema relacional. A tabela não normalizada referente  ao documento apresentado acima é representada abaixo:
 ![image](https://github.com/user-attachments/assets/e1463340-f943-4385-b383-30c5279084f1)
 
+Essa tabela é dita não normalizada pois possui uma tabela aninhada. Uma tabela é dita aninhada se a coluna conter valores multi-valorados ao invés de valores atômicos. A tabela acima pode ser escrita através do seguinte esquema relacional:
+Proj(**CodProj**, Tipo, Descr
+				(**CodEmp**, Nome, Cat, Sal, DataIni, TempAl))
+No exemplo acima utilizamos parênteses aninhados que representam tabelas aninhadas.
+# Normalização
+
+Após obtermos o esquema relacional referente a um documento, aplicamos o processo de normalização a este esquema. Este processo baseia-se no conceito de *forma normal*. Uma forma normal é uma regra que deve ser obedecida por uma tabela para que ela seja considerada "bem projetada".
+
+Há diversas formas normais que verificam uma tabela relacional. Serão vistas aqui as quatro primeiras, chamadas de primeira, segunda, terceira e quarta forma normal, sendo representadas por *1FN*, *2FN*, *3FN* e *4FN* respectivamente.
+
+## Passagem à primeira forma normal (1FN)
+
+O próximo passo da normalização consta na transformação de um esquema relacional não normalizado em um esquema relacional na primeira forma normal. O objetivo da primeira forma normal é **eliminar as tabelas aninhadas**. Para eliminarmos as tabelas aninhadas podemos levar em consideração duas maneiras:
+* *Utilizar uma única tabela representando a primeira forma normal*
+	Neste caso, cria-se uma tabela que inclui redundâncias e leva em consideração todos os atributos da tabela não normalizada. Por exemplo, considere o exemplo anterior, onde tinhamos Proj(**CodProj**, Tipo, Descr
+				(**CodEmp**, Nome, Cat, Sal, DataIni, TempAl)).
+	A tabela referente a esse esquema relacional seria: Proj(CodProj, Tipo, Desc, CodEmp, Nome, Cat, Sal, DataIni, TempAl).
+* *Utilizar uma tabela para cada tabela aninhada*
+	Este é o caso que será utilizado daqui em diante, e envolve criar uma tabela para cada tabela aninhada. Levando em consideração o exemplo do Projeto teríamos:
+		Proj(**CodProj**, Tipo, Descr)
+		ProjEmp(**CodProj**, **CodEmp**, Nome, Cat, Sal, DataIni, TempAl)
+
+A passagem à primeira forma normal via decomposição de tabelas é feita nos seguintes passos:
+1. Cria-se uma tabela referente a tabela não normalizada que contém apenas valores atômicos, ou seja, sem levar em consideração as tabelas aninhadas.
+2. Para cada tabela aninhada, é criada uma tabela na 1FN com os seguintes atributos:
+	* A chave primária de cada uma das tabelas que a tabela em questão está aninhada
+	* As colunas da própria tabela aninhada.
+3. São definidas as chaves primárias das tabelas associadas as tabelas aninhadas.
+
+Tomando o exemplo visto acima referente as tabelas *Proj* e *ProjEmp*, vamos analisar a tabela *ProjEmp*. Primeiramente temos a chave primária referente a tabela externa na forma não normalizada, que é *CodProj*. E em seguida temos os atributos referentes aos atributos da tabela aninhada em questão. Observe também que tanto *codProj* quanto *codEmp* são chaves primárias em relação a ProjEmp. Isto ocorre pois um mesmo empregado pode trabalhar em mais de um projeto, portanto, para evitar inconsistência de integridade, precisamos ter as chaves *codProj* e *CodEmp* como chaves primárias.
+
+Segue abaixo um exemplo visual referente as tabelas após a 1FN:
+![image](https://github.com/user-attachments/assets/dc57a41a-ecf1-4c97-813f-6b6ab4a5526b)
+
