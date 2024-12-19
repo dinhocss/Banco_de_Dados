@@ -45,3 +45,9 @@ O fator determinante para verificarmos a relação entre a tabela em questão co
 
 Após termos feito a classificação das tabelas em relação as suas entidades ou relacionamentos, é possível montar um diagrama ER inicial, por exemplo:
 ![image](https://github.com/user-attachments/assets/99e9838e-6a9d-4dfb-92c7-85f199fee828)
+
+## Definição de Relacionamentos 1:n e 1:1
+
+Toda chave estrangeira que não corresponde a um relacionamento N:N nem a uma entidade especializada possui relacionamento ou 1:n ou 1:1. Não há regras para definir relacionamentos 1:n e 1:1. Para isso, precisamos analisar os possíveis conteúdos do banco de dados. No caso do exemplo dado acima, os relacionamentos 1:n e 1:1 são definidos nas tabelas *Sala* e *Turma*, portanto, teríamos:
+![image](https://github.com/user-attachments/assets/430c5057-6921-4e3b-95f3-91f64b8374a0)
+
