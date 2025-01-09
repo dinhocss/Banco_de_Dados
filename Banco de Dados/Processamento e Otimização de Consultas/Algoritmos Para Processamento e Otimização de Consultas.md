@@ -31,4 +31,5 @@ Por último é feito um planejamento e otimização das consultas. Aqui é onde 
 	* Reorganizar a ordem das operações
 
 Segue abaixo um esquema de como é feito essa análise referente a uma consulta:
+
 ![image](https://github.com/user-attachments/assets/3765882e-9bf5-4419-a686-4a87a23f5b77)
